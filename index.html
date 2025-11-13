@@ -6,20 +6,53 @@
     <title>For Bae | How Much I Love You 💕</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
         .font-dancing {
             font-family: 'Dancing Script', cursive;
         }
-        
-        .love-gradient {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
         }
-        
+
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: twinkle 4s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        .love-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
         .heart-beat {
             animation: heartbeat 1.5s ease-in-out infinite;
         }
-        
+
         @keyframes heartbeat {
             0% { transform: scale(1); }
             14% { transform: scale(1.3); }
@@ -27,15 +60,15 @@
             42% { transform: scale(1.3); }
             70% { transform: scale(1); }
         }
-        
+
         .floating-heart {
             position: fixed;
-            color: rgba(255, 107, 107, 0.7);
+            color: rgba(102, 126, 234, 0.7);
             animation: float-up 4s ease-in-out infinite;
             pointer-events: none;
             z-index: 10;
         }
-        
+
         @keyframes float-up {
             0% {
                 opacity: 0;
@@ -50,71 +83,94 @@
                 transform: translateY(-100vh) scale(0.3);
             }
         }
-        
+
         .love-meter {
-            background: linear-gradient(90deg, #ff6b6b 0%, #ff8e53 50%, #ffd93d 100%);
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             transition: width 2s ease-out;
         }
-        
+
         .glow-text {
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.8), 0 0 60px rgba(102, 126, 234, 0.4);
         }
-        
+
         .reason-card {
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .reason-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+            background: rgba(255, 255, 255, 0.15);
         }
-        
+
         .infinite-love {
-            background: linear-gradient(270deg, #ff6b6b, #ee5a6f, #c44569, #ff6b6b);
+            background: linear-gradient(270deg, #667eea, #764ba2, #f093fb, #667eea);
             background-size: 800% 800%;
             animation: infinite-gradient 10s ease infinite;
         }
-        
+
         @keyframes infinite-gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
+
         .sparkle {
             position: absolute;
-            animation: sparkle 2s linear infinite;
+            animation: sparkle 3s linear infinite;
+            color: #f093fb;
         }
-        
+
         @keyframes sparkle {
             0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
         }
-        
+
         .timeline-dot {
             position: relative;
         }
-        
+
         .timeline-dot::before {
             content: '';
             position: absolute;
             width: 20px;
             height: 20px;
-            background: #ff6b6b;
+            background: #667eea;
             border-radius: 50%;
             top: 50%;
             left: -10px;
             transform: translateY(-50%);
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
         }
-        
+
         .love-counter {
             font-variant-numeric: tabular-nums;
         }
+
+        .modern-button {
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #667eea, #764ba2, #f093fb) 1;
+            transition: all 0.3s ease;
+        }
+
+        .modern-button:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-pink-50 via-red-50 to-purple-50 min-h-screen overflow-x-hidden">
+<body class="min-h-screen overflow-x-hidden">
     <!-- Floating Hearts Background -->
     <div id="heartsContainer"></div>
     
@@ -153,10 +209,10 @@
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="scrollToSection('meter')" class="love-gradient text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <button onclick="scrollToSection('meter')" class="modern-button text-white px-8 py-4 rounded-full font-semibold">
                     💓 Measure My Love
                 </button>
-                <button onclick="startLoveExplosion()" class="bg-white text-red-500 border-2 border-red-500 px-8 py-4 rounded-full font-semibold hover:bg-red-500 hover:text-white transition-all duration-300">
+                <button onclick="startLoveExplosion()" class="modern-button text-white px-8 py-4 rounded-full font-semibold">
                     💝 Show Me The Love
                 </button>
             </div>
@@ -169,16 +225,16 @@
     </section>
     
     <!-- Love Meter Section -->
-    <section id="meter" class="py-20 px-4 bg-white/30 backdrop-blur-sm">
+    <section id="meter" class="py-20 px-4">
         <div class="container mx-auto max-w-4xl">
             <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 love-gradient bg-clip-text text-transparent">
                 The Love Meter
             </h2>
             
-            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+            <div class="glass-card rounded-3xl shadow-2xl p-8 md:p-12">
                 <div class="text-center mb-8">
-                    <p class="text-xl text-gray-700 mb-6">How much do I love you?</p>
-                    <div class="relative h-12 bg-gray-200 rounded-full overflow-hidden">
+                    <p class="text-xl text-white mb-6">How much do I love you?</p>
+                    <div class="relative h-12 bg-white/20 rounded-full overflow-hidden">
                         <div id="loveMeter" class="love-meter h-full rounded-full flex items-center justify-center text-white font-bold" style="width: 0%">
                             <span class="text-lg">Infinite</span>
                         </div>
@@ -186,25 +242,25 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    <div class="bg-pink-50 rounded-2xl p-6">
+                    <div class="glass-card rounded-2xl p-6">
                         <div class="text-4xl mb-2">🌟</div>
-                        <div class="text-2xl font-bold text-pink-600">∞</div>
-                        <p class="text-gray-600">Stars in the sky</p>
+                        <div class="text-2xl font-bold text-white">∞</div>
+                        <p class="text-white/80">Stars in the sky</p>
                     </div>
-                    <div class="bg-red-50 rounded-2xl p-6">
+                    <div class="glass-card rounded-2xl p-6">
                         <div class="text-4xl mb-2">🌊</div>
-                        <div class="text-2xl font-bold text-red-600">∞</div>
-                        <p class="text-gray-600">Drops in the ocean</p>
+                        <div class="text-2xl font-bold text-white">∞</div>
+                        <p class="text-white/80">Drops in the ocean</p>
                     </div>
-                    <div class="bg-purple-50 rounded-2xl p-6">
+                    <div class="glass-card rounded-2xl p-6">
                         <div class="text-4xl mb-2">⏰</div>
-                        <div class="text-2xl font-bold text-purple-600">∞</div>
-                        <p class="text-gray-600">Moments in time</p>
+                        <div class="text-2xl font-bold text-white">∞</div>
+                        <p class="text-white/80">Moments in time</p>
                     </div>
                 </div>
                 
                 <div class="text-center mt-8">
-                    <button onclick="fillLoveMeter()" class="infinite-love text-white px-6 py-3 rounded-full font-semibold">
+                    <button onclick="fillLoveMeter()" class="modern-button text-white px-6 py-3 rounded-full font-semibold">
                         Calculate My Love 💕
                     </button>
                 </div>
@@ -258,45 +314,45 @@
             </div>
             
             <div class="text-center mt-12">
-                <div class="bg-white/80 rounded-2xl p-8 max-w-2xl mx-auto shadow-lg">
-                    <p class="text-xl text-gray-700 italic">
+                <div class="glass-card rounded-2xl p-8 max-w-2xl mx-auto shadow-lg">
+                    <p class="text-xl text-white italic">
                         "I love you not only for what you are, but for what I am when I am with you."
                     </p>
-                    <p class="text-lg text-gray-600 mt-4">- Elizabeth Barrett Browning</p>
+                    <p class="text-lg text-white/80 mt-4">- Elizabeth Barrett Browning</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Love Timeline -->
-    <section id="timeline" class="py-20 px-4 bg-white/30 backdrop-blur-sm">
+    <section id="timeline" class="py-20 px-4">
         <div class="container mx-auto max-w-4xl">
             <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 love-gradient bg-clip-text text-transparent">
                 Our Love Story
             </h2>
             
             <div class="relative">
-                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-red-300"></div>
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-white/50"></div>
                 
                 <div class="space-y-8">
                     <div class="timeline-dot pl-16">
-                        <div class="bg-white rounded-2xl p-6 shadow-lg">
-                            <h3 class="text-xl font-bold text-red-500 mb-2">The Moment I Met You</h3>
-                            <p class="text-gray-700">My world changed forever the day I met you. Everything became brighter, more colorful, more meaningful.</p>
+                        <div class="glass-card rounded-2xl p-6 shadow-lg">
+                            <h3 class="text-xl font-bold text-white mb-2">The Moment I Met You</h3>
+                            <p class="text-white/80">My world changed forever the day I met you. Everything became brighter, more colorful, more meaningful.</p>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-dot pl-16">
-                        <div class="bg-white rounded-2xl p-6 shadow-lg">
-                            <h3 class="text-xl font-bold text-red-500 mb-2">Falling in Love</h3>
-                            <p class="text-gray-700">I didn't just fall in love with you, I fell into everything you are - your dreams, your fears, your happiness.</p>
+                        <div class="glass-card rounded-2xl p-6 shadow-lg">
+                            <h3 class="text-xl font-bold text-white mb-2">Falling in Love</h3>
+                            <p class="text-white/80">I didn't just fall in love with you, I fell into everything you are - your dreams, your fears, your happiness.</p>
                         </div>
                     </div>
-                    
+
                     <div class="timeline-dot pl-16">
-                        <div class="bg-white rounded-2xl p-6 shadow-lg">
-                            <h3 class="text-xl font-bold text-red-500 mb-2">Every Day With You</h3>
-                            <p class="text-gray-700">Each day my love grows deeper, stronger, more infinite. You are my yesterday, my today, my forever.</p>
+                        <div class="glass-card rounded-2xl p-6 shadow-lg">
+                            <h3 class="text-xl font-bold text-white mb-2">Every Day With You</h3>
+                            <p class="text-white/80">Each day my love grows deeper, stronger, more infinite. You are my yesterday, my today, my forever.</p>
                         </div>
                     </div>
                 </div>
