@@ -10,14 +10,33 @@
 
         .font-dancing {
             font-family: 'Dancing Script', cursive;
+            letter-spacing: 0.5px;
         }
 
         .font-playfair {
             font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
+        }
+
+        .gold-accent {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .luxury-text {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         body {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            background:
+                radial-gradient(ellipse at top, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, #1a0b2e 0%, #2d1b69 50%, #4c1d95 100%);
             background-attachment: fixed;
         }
 
@@ -46,24 +65,39 @@
         }
 
         .love-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%);
         }
 
         .heart-beat {
-            animation: heartbeat 1.5s ease-in-out infinite;
+            animation: heartbeat 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
         }
 
         @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.3); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.3); }
-            70% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(139, 92, 246, 0));
+            }
+            14% {
+                transform: scale(1.15);
+                filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+            }
+            28% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(139, 92, 246, 0));
+            }
+            42% {
+                transform: scale(1.15);
+                filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+            }
+            70% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(139, 92, 246, 0));
+            }
         }
 
         .floating-heart {
             position: fixed;
-            color: rgba(102, 126, 234, 0.7);
+            color: rgba(139, 92, 246, 0.7);
             animation: float-up 4s ease-in-out infinite;
             pointer-events: none;
             z-index: 10;
@@ -85,44 +119,232 @@
         }
 
         .love-meter {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(90deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%);
             transition: width 2s ease-out;
         }
 
         .glow-text {
-            text-shadow: 0 0 30px rgba(102, 126, 234, 0.8), 0 0 60px rgba(102, 126, 234, 0.4);
+            text-shadow:
+                0 0 20px rgba(139, 92, 246, 0.9),
+                0 0 40px rgba(139, 92, 246, 0.6),
+                0 0 80px rgba(139, 92, 246, 0.3),
+                0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 50%, #e8eaff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .reason-card {
-            transition: all 0.3s ease;
-            backdrop-filter: blur(15px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(25px);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%),
+                linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .reason-card:hover::before {
+            left: 100%;
         }
 
         .reason-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
-            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px) scale(1.03) rotateX(5deg) rotateY(5deg);
+            box-shadow:
+                0 25px 50px rgba(139, 92, 246, 0.3),
+                0 0 100px rgba(139, 92, 246, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%),
+                linear-gradient(45deg, rgba(139, 92, 246, 0.15) 0%, rgba(168, 85, 247, 0.08) 100%);
         }
 
         .infinite-love {
-            background: linear-gradient(270deg, #667eea, #764ba2, #f093fb, #667eea);
-            background-size: 800% 800%;
-            animation: infinite-gradient 10s ease infinite;
+            background:
+                linear-gradient(270deg, #8b5cf6, #a855f7, #c084fc, #8b5cf6),
+                linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+            background-size: 800% 800%, 100% 100%;
+            background-blend-mode: overlay;
+            animation: infinite-gradient 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infinite-love::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
         }
 
         @keyframes infinite-gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% { background-position: 0% 50%, 0% 0%; }
+            50% { background-position: 100% 50%, 0% 0%; }
+            100% { background-position: 0% 50%, 0% 0%; }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes fade-trail {
+            0% {
+                opacity: 0.8;
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-20px);
+            }
+        }
+
+        .mouse-trail-heart {
+            animation: fade-trail 1s ease-out forwards;
+        }
+
+        @keyframes cardFlip {
+            0% {
+                opacity: 0;
+                transform: rotateY(180deg) scale(0.8);
+            }
+            50% {
+                opacity: 0.5;
+                transform: rotateY(90deg) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateY(0deg) scale(1);
+            }
+        }
+
+        @keyframes grow-rose {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(-180deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.2) rotate(-90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .planted-rose {
+            animation: grow-rose 0.5s ease-out;
         }
 
         .sparkle {
             position: absolute;
             animation: sparkle 3s linear infinite;
-            color: #f093fb;
+            color: #c084fc;
         }
+
+        .violet-glow {
+            box-shadow:
+                0 0 30px rgba(139, 92, 246, 0.4),
+                0 0 60px rgba(139, 92, 246, 0.2),
+                0 0 120px rgba(139, 92, 246, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .enhanced-sparkle {
+            position: absolute;
+            animation: sparkle 3s linear infinite;
+            color: #c084fc;
+            filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.8));
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+        }
+
+        .floating-particle {
+            position: fixed;
+            pointer-events: none;
+            animation: float-particle 8s ease-in-out infinite;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        @keyframes float-particle {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg) scale(0);
+            }
+            10% {
+                opacity: 0.3;
+                transform: translateY(90vh) rotate(36deg) scale(0.5);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translateY(50vh) rotate(180deg) scale(1);
+            }
+            90% {
+                opacity: 0.3;
+                transform: translateY(10vh) rotate(324deg) scale(0.5);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-10vh) rotate(360deg) scale(0);
+            }
+        }
+
+        .floating-rose {
+            position: fixed;
+            color: #dc2626;
+            animation: float-up 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.8;
+        }
+
+        .floating-butterfly {
+            position: fixed;
+            color: #8b5cf6;
+            animation: butterfly-float 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.7;
+        }
+
+        @keyframes butterfly-float {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg) scale(0);
+            }
+            15% {
+                opacity: 0.7;
+                transform: translateY(80vh) rotate(10deg) scale(1);
+            }
+            50% {
+                transform: translateY(50vh) rotate(-10deg) scale(1.1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) rotate(360deg) scale(0.5);
+            }
+        }
+
+
 
         @keyframes sparkle {
             0%, 100% { opacity: 0; transform: scale(0); }
@@ -138,12 +360,12 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background: #667eea;
+            background: #8b5cf6;
             border-radius: 50%;
             top: 50%;
             left: -10px;
             transform: translateY(-50%);
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
         }
 
         .love-counter {
@@ -151,39 +373,106 @@
         }
 
         .modern-button {
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            border: 2px solid;
-            border-image: linear-gradient(45deg, #667eea, #764ba2, #f093fb) 1;
-            transition: all 0.3s ease;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%),
+                linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border: none;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .modern-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .modern-button:hover::before {
+            left: 100%;
         }
 
         .modern-button:hover {
-            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            background:
+                linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(168, 85, 247, 0.2) 100%),
+                linear-gradient(45deg, rgba(139, 92, 246, 0.2) 0%, rgba(168, 85, 247, 0.1) 100%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow:
+                0 15px 35px rgba(139, 92, 246, 0.4),
+                0 0 60px rgba(139, 92, 246, 0.2),
+                0 0 80px rgba(255, 215, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .gold-border {
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700) 1;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%),
+                linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
         }
     </style>
 </head>
 <body class="min-h-screen overflow-x-hidden">
     <!-- Floating Hearts Background -->
     <div id="heartsContainer"></div>
+
+    <!-- Floating Roses and Butterflies -->
+    <div id="rosesContainer"></div>
+    <div id="butterfliesContainer"></div>
+
+    <!-- Floating Particles -->
+    <div id="particlesContainer"></div>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-lg z-50">
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg shadow-xl z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <div class="font-dancing text-2xl text-red-500">💕 My Bae</div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#home" class="text-gray-700 hover:text-red-500 transition">Home</a>
-                    <a href="#meter" class="text-gray-700 hover:text-red-500 transition">Love Meter</a>
-                    <a href="#reasons" class="text-gray-700 hover:text-red-500 transition">Reasons</a>
-                    <a href="#timeline" class="text-gray-700 hover:text-red-500 transition">Timeline</a>
+                <div class="font-dancing text-3xl luxury-text text-purple-600">💕 My Bae</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Home</a>
+                    <a href="#meter" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Love Meter</a>
+                    <a href="#reasons" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Reasons</a>
+                    <a href="#memory" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Memories</a>
+                    <a href="#letter" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Love Letter</a>
+                    <a href="#quotes" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Quotes</a>
+                    <a href="#garden" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Rose Garden</a>
+                    <a href="#timeline" class="luxury-text text-gray-700 hover:text-purple-600 hover:gold-accent transition-all duration-300">Timeline</a>
                 </div>
             </div>
         </div>
@@ -202,10 +491,10 @@
             
             <div class="mb-8">
                 <p class="text-2xl md:text-3xl text-gray-700 mb-4">
-                    If I could count all the ways...
+                    <span class="gold-accent">If I could count all the ways...</span>
                 </p>
-                <div class="text-6xl md:text-8xl font-bold text-red-500 love-counter" id="loveCounter">0</div>
-                <p class="text-xl text-gray-600 mt-2">reasons and counting...</p>
+                <div class="text-6xl md:text-8xl font-bold text-purple-500 love-counter" id="loveCounter">0</div>
+                <p class="text-xl text-gray-600 mt-2"><span class="gold-accent">reasons and counting...</span></p>
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -219,9 +508,11 @@
         </div>
         
         <!-- Floating sparkles -->
-        <div class="sparkle text-2xl" style="top: 20%; left: 10%; animation-delay: 0s;">✨</div>
-        <div class="sparkle text-3xl" style="top: 60%; right: 15%; animation-delay: 0.5s;">⭐</div>
-        <div class="sparkle text-2xl" style="bottom: 30%; left: 20%; animation-delay: 1s;">💫</div>
+        <div class="enhanced-sparkle text-2xl" style="top: 20%; left: 10%; animation-delay: 0s;">✨</div>
+        <div class="enhanced-sparkle text-3xl" style="top: 60%; right: 15%; animation-delay: 0.5s;">⭐</div>
+        <div class="enhanced-sparkle text-2xl" style="bottom: 30%; left: 20%; animation-delay: 1s;">💫</div>
+        <div class="enhanced-sparkle text-2xl" style="top: 40%; right: 25%; animation-delay: 1.5s;">✨</div>
+        <div class="enhanced-sparkle text-3xl" style="bottom: 50%; left: 30%; animation-delay: 2s;">⭐</div>
     </section>
     
     <!-- Love Meter Section -->
@@ -231,7 +522,7 @@
                 The Love Meter
             </h2>
             
-            <div class="glass-card rounded-3xl shadow-2xl p-8 md:p-12">
+            <div class="glass-card rounded-3xl shadow-2xl p-8 md:p-12 violet-glow">
                 <div class="text-center mb-8">
                     <p class="text-xl text-white mb-6">How much do I love you?</p>
                     <div class="relative h-12 bg-white/20 rounded-full overflow-hidden">
@@ -271,9 +562,15 @@
     <!-- Reasons Why I Love You -->
     <section id="reasons" class="py-20 px-4">
         <div class="container mx-auto max-w-6xl">
-            <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 love-gradient bg-clip-text text-transparent">
+            <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 gold-accent">
                 Why I Love You So Much
             </h2>
+
+            <div class="text-center mb-12">
+                <button onclick="scrollToSection('letter')" class="modern-button text-white px-8 py-4 rounded-full font-semibold">
+                    💌 Read My Love Letter
+                </button>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="reason-card bg-white/80 rounded-2xl p-6 shadow-lg">
@@ -323,7 +620,197 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Memory Lane Section -->
+    <section id="memory" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 love-gradient bg-clip-text text-transparent">
+                Memory Lane 💭
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="memory-card glass-card rounded-2xl p-6 shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="text-6xl mb-4">📸</div>
+                        <h3 class="text-xl font-bold text-white mb-2 luxury-text">Our First Date</h3>
+                        <p class="text-white/80">Click to reveal...</p>
+                    </div>
+                    <div class="card-back hidden">
+                        <div class="text-4xl mb-4">💕</div>
+                        <p class="text-white/90 italic">"The day that changed everything. Your smile lit up the entire restaurant and I knew I was falling for you."</p>
+                    </div>
+                </div>
+
+                <div class="memory-card glass-card rounded-2xl p-6 shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="text-6xl mb-4">🌙</div>
+                        <h3 class="text-xl font-bold text-white mb-2 luxury-text">Starry Night</h3>
+                        <p class="text-white/80">Click to reveal...</p>
+                    </div>
+                    <div class="card-back hidden">
+                        <div class="text-4xl mb-4">✨</div>
+                        <p class="text-white/90 italic">"Lying under the stars, holding your hand. In that moment, I knew you were my forever."</p>
+                    </div>
+                </div>
+
+                <div class="memory-card glass-card rounded-2xl p-6 shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="text-6xl mb-4">🎁</div>
+                        <h3 class="text-xl font-bold text-white mb-2 luxury-text">Surprise Gift</h3>
+                        <p class="text-white/80">Click to reveal...</p>
+                    </div>
+                    <div class="card-back hidden">
+                        <div class="text-4xl mb-4">🎀</div>
+                        <p class="text-white/90 italic">"The little things you do, like surprising me with my favorite flowers. You make every day special."</p>
+                    </div>
+                </div>
+
+                <div class="memory-card glass-card rounded-2xl p-6 shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="text-6xl mb-4">☕</div>
+                        <h3 class="text-xl font-bold text-white mb-2 luxury-text">Coffee Dates</h3>
+                        <p class="text-white/80">Click to reveal...</p>
+                    </div>
+                    <div class="card-back hidden">
+                        <div class="text-4xl mb-4">🍵</div>
+                        <p class="text-white/90 italic">"Our endless conversations over coffee. You understand me like no one else ever has."</p>
+                    </div>
+                </div>
+
+                <div class="memory-card glass-card rounded-2xl p-6 shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="text-6xl mb-4">🎶</div>
+                        <h3 class="text-xl font-bold text-white mb-2 luxury-text">Our Song</h3>
+                        <p class="text-white/80">Click to reveal...</p>
+                    </div>
+                    <div class="card-back hidden">
+                        <div class="text-4xl mb-4">🎵</div>
+                        <p class="text-white/90 italic">"Every time I hear our song, I'm reminded of how lucky I am to have found you."</p>
+                    </div>
+                </div>
+
+                <div class="memory-card glass-card rounded-2xl p-6 shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="text-6xl mb-4">🌅</div>
+                        <h3 class="text-xl font-bold text-white mb-2 luxury-text">Sunrise Together</h3>
+                        <p class="text-white/80">Click to reveal...</p>
+                    </div>
+                    <div class="card-back hidden">
+                        <div class="text-4xl mb-4">🌄</div>
+                        <p class="text-white/90 italic">"Watching the sunrise with you in my arms. A perfect start to what I hope will be many beautiful days together."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Quotes Carousel Section -->
+    <section id="quotes" class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 love-gradient bg-clip-text text-transparent">
+                Love Quotes 💬
+            </h2>
+
+            <div class="glass-card rounded-3xl shadow-2xl p-8 md:p-12 violet-glow">
+                <div class="text-center">
+                    <div id="quoteDisplay" class="text-xl md:text-2xl text-white/90 italic mb-6 min-h-[120px] flex items-center justify-center">
+                        "Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day."
+                    </div>
+                    <div id="quoteAuthor" class="text-lg gold-accent luxury-text">- Unknown</div>
+                </div>
+
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button onclick="prevQuote()" class="modern-button text-white px-6 py-3 rounded-full font-semibold">
+                        ← Previous
+                    </button>
+                    <button onclick="nextQuote()" class="modern-button text-white px-6 py-3 rounded-full font-semibold">
+                        Next →
+                    </button>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button onclick="randomQuote()" class="modern-button text-white px-6 py-3 rounded-full font-semibold">
+                        🎲 Random Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Rose Garden Section -->
+    <section id="garden" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 love-gradient bg-clip-text text-transparent">
+                Virtual Rose Garden 🌹
+            </h2>
+
+            <div class="glass-card rounded-3xl shadow-2xl p-8 md:p-12 violet-glow">
+                <div class="text-center mb-8">
+                    <p class="text-xl text-white/80 mb-6">Click anywhere in the garden to plant a rose for your love! 🌸</p>
+                    <div class="text-lg text-white mb-4">Roses planted: <span id="roseCount" class="gold-accent font-bold">0</span></div>
+                </div>
+
+                <div id="roseGarden" class="relative h-96 bg-gradient-to-b from-purple-900/20 to-pink-900/20 rounded-2xl overflow-hidden cursor-crosshair border-2 border-white/20">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+Cjwvc3ZnPg==')] opacity-30"></div>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button onclick="clearGarden()" class="modern-button text-white px-6 py-3 rounded-full font-semibold">
+                        🌱 Plant Fresh Garden
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section id="letter" class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="font-dancing text-5xl md:text-6xl text-center mb-12 love-gradient bg-clip-text text-transparent">
+                My First Love Letter to You 💌
+            </h2>
+
+            <div class="glass-card rounded-3xl shadow-2xl p-8 md:p-12 violet-glow">
+                <div class="text-center mb-8">
+                    <div class="text-4xl mb-4">💕</div>
+                    <p class="text-xl text-white/80 italic">Written with all my heart...</p>
+                </div>
+
+                <div class="space-y-6 text-white/90 leading-relaxed">
+                    <p class="text-lg font-playfair">
+                        My Dearest Love,
+                    </p>
+
+                    <p class="text-base">
+                        From the moment our eyes first met, I knew there was something extraordinary about you. Your smile lights up my world like the first ray of sunshine after a long night, and your laughter is the sweetest melody I've ever heard. You are the missing piece that completes my soul, the dream I never knew I had until you became my reality.
+                    </p>
+
+                    <p class="text-base">
+                        Every day with you feels like a new adventure, a beautiful journey we're taking together. Your kindness, your strength, your intelligence – they all inspire me to be a better person. You see the world in ways that amaze me, and I find myself falling in love with you all over again with every conversation, every shared moment, every quiet glance.
+                    </p>
+
+                    <p class="text-base">
+                        I promise to cherish you, to support you, to love you unconditionally through all of life's ups and downs. You are my forever, my always, my everything. Thank you for choosing me, for loving me, for being you.
+                    </p>
+
+                    <p class="text-base">
+                        With all my love, now and forever,
+                    </p>
+
+                    <p class="text-lg font-dancing text-purple-300">
+                        Your Bae 💖
+                    </p>
+                </div>
+
+                <div class="text-center mt-8">
+                    <div class="inline-block p-4 bg-white/10 rounded-full">
+                        <div class="text-3xl animate-pulse">💕</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Love Timeline -->
     <section id="timeline" class="py-20 px-4">
         <div class="container mx-auto max-w-4xl">
@@ -389,16 +876,76 @@
             heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
             heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             heart.style.animationDelay = Math.random() * 2 + 's';
-            
+
             document.getElementById('heartsContainer').appendChild(heart);
-            
+
             setTimeout(() => {
                 heart.remove();
             }, 7000);
         }
-        
+
+        // Create floating roses
+        function createFloatingRose() {
+            const rose = document.createElement('div');
+            rose.className = 'floating-rose';
+            rose.innerHTML = '🌹';
+            rose.style.left = Math.random() * 100 + '%';
+            rose.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            rose.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            rose.style.animationDelay = Math.random() * 3 + 's';
+
+            document.getElementById('rosesContainer').appendChild(rose);
+
+            setTimeout(() => {
+                rose.remove();
+            }, 9000);
+        }
+
+        // Create floating butterflies
+        function createFloatingButterfly() {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'floating-butterfly';
+            butterfly.innerHTML = '🦋';
+            butterfly.style.left = Math.random() * 100 + '%';
+            butterfly.style.fontSize = (Math.random() * 15 + 20) + 'px';
+            butterfly.style.animationDuration = (Math.random() * 4 + 8) + 's';
+            butterfly.style.animationDelay = Math.random() * 4 + 's';
+
+            document.getElementById('butterfliesContainer').appendChild(butterfly);
+
+            setTimeout(() => {
+                butterfly.remove();
+            }, 12000);
+        }
+
+        // Create floating particles
+        function createFloatingParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.innerHTML = ['✨', '⭐', '💫', '✨'][Math.floor(Math.random() * 4)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.fontSize = (Math.random() * 10 + 8) + 'px';
+            particle.style.animationDuration = (Math.random() * 4 + 8) + 's';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+
+            document.getElementById('particlesContainer').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+
         // Create hearts periodically
         setInterval(createFloatingHeart, 1000);
+
+        // Create roses periodically
+        setInterval(createFloatingRose, 3000);
+
+        // Create butterflies periodically
+        setInterval(createFloatingButterfly, 5000);
+
+        // Create particles periodically
+        setInterval(createFloatingParticle, 2000);
         
         // Love counter animation
         let loveCount = 0;
@@ -448,28 +995,243 @@
             }
         }
         
-        // Add scroll animations
+        // Mouse trail hearts
+        let mouseTrail = [];
+        document.addEventListener('mousemove', function(e) {
+            if (mouseTrail.length > 5) {
+                const oldHeart = mouseTrail.shift();
+                if (oldHeart.parentNode) oldHeart.remove();
+            }
+
+            const heart = document.createElement('div');
+            heart.className = 'mouse-trail-heart';
+            heart.innerHTML = ['💕', '💖', '💗', '💝'][Math.floor(Math.random() * 4)];
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            heart.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            heart.style.pointerEvents = 'none';
+            heart.style.position = 'fixed';
+            heart.style.zIndex = '1000';
+            heart.style.animation = 'fade-trail 1s ease-out forwards';
+
+            document.body.appendChild(heart);
+            mouseTrail.push(heart);
+
+            setTimeout(() => {
+                if (heart.parentNode) heart.remove();
+            }, 1000);
+        });
+
+        // Interactive heart click effects
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.reason-card') || e.target.closest('.glass-card')) {
+                createRipple(e);
+            }
+        });
+
+        function createRipple(event) {
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = (event.clientX - event.target.getBoundingClientRect().left) + 'px';
+            ripple.style.top = (event.clientY - event.target.getBoundingClientRect().top) + 'px';
+
+            event.target.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+
+        // Parallax scrolling effect
+        let lastScrollY = window.scrollY;
+        function updateParallax() {
+            const scrolled = window.scrollY;
+            const rate = scrolled * -0.5;
+
+            // Apply subtle parallax to background
+            document.body.style.backgroundPosition = `0% ${rate * 0.1}px`;
+
+            lastScrollY = scrolled;
+        }
+
+        window.addEventListener('scroll', updateParallax);
+
+        // Add scroll animations with premium easing
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    entry.target.style.filter = 'blur(0px)';
                 }
             });
         }, observerOptions);
-        
-        // Observe all reason cards
-        document.querySelectorAll('.reason-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-            observer.observe(card);
+
+        // Observe all reason cards and sections with premium animations
+        document.querySelectorAll('.reason-card, .glass-card').forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px) scale(0.95)';
+            element.style.filter = 'blur(5px)';
+            element.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+            observer.observe(element);
         });
+
+        // Fix late scroll animations by adding a small delay and checking visibility
+        setTimeout(() => {
+            document.querySelectorAll('.reason-card, .glass-card').forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                if (isVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0) scale(1)';
+                    element.style.filter = 'blur(0px)';
+                }
+            });
+        }, 100);
+
+        // Memory card flip functionality
+        function flipCard(card) {
+            const front = card.querySelector('.card-front');
+            const back = card.querySelector('.card-back');
+
+            if (front.style.display !== 'none') {
+                front.style.display = 'none';
+                back.style.display = 'block';
+                back.style.animation = 'cardFlip 0.6s ease-in-out';
+            } else {
+                back.style.display = 'none';
+                front.style.display = 'block';
+                front.style.animation = 'cardFlip 0.6s ease-in-out reverse';
+            }
+        }
+
+        // Love quotes functionality
+        const loveQuotes = [
+            { quote: "Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day.", author: "Unknown" },
+            { quote: "I love you not only for what you are, but for what I am when I am with you.", author: "Elizabeth Barrett Browning" },
+            { quote: "You are my today and all of my tomorrows.", author: "Leo Christopher" },
+            { quote: "In your eyes, I found my favorite color.", author: "Unknown" },
+            { quote: "You make me want to be a better man just so I can be more worthy of your love.", author: "Unknown" },
+            { quote: "Every love story is beautiful, but ours is my favorite.", author: "Unknown" },
+            { quote: "I fell in love with you because you loved me when I couldn't love myself.", author: "Unknown" },
+            { quote: "You are the finest, loveliest, tenderest, and most beautiful person I have ever known.", author: "F. Scott Fitzgerald" },
+            { quote: "I love you more than I have ever found a way to say to you.", author: "Ben Folds" },
+            { quote: "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.", author: "Lao Tzu" }
+        ];
+
+        let currentQuoteIndex = 0;
+
+        function displayQuote(index) {
+            const quoteElement = document.getElementById('quoteDisplay');
+            const authorElement = document.getElementById('quoteAuthor');
+
+            quoteElement.style.opacity = '0';
+            authorElement.style.opacity = '0';
+
+            setTimeout(() => {
+                quoteElement.textContent = `"${loveQuotes[index].quote}"`;
+                authorElement.textContent = `- ${loveQuotes[index].author}`;
+                quoteElement.style.opacity = '1';
+                authorElement.style.opacity = '1';
+            }, 300);
+        }
+
+        function nextQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % loveQuotes.length;
+            displayQuote(currentQuoteIndex);
+        }
+
+        function prevQuote() {
+            currentQuoteIndex = (currentQuoteIndex - 1 + loveQuotes.length) % loveQuotes.length;
+            displayQuote(currentQuoteIndex);
+        }
+
+        function randomQuote() {
+            currentQuoteIndex = Math.floor(Math.random() * loveQuotes.length);
+            displayQuote(currentQuoteIndex);
+        }
+
+        // Virtual rose garden functionality
+        let roseCount = 0;
+        const roseGarden = document.getElementById('roseGarden');
+        const roseCountElement = document.getElementById('roseCount');
+
+        function plantRose(event) {
+            const rect = roseGarden.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const rose = document.createElement('div');
+            rose.className = 'planted-rose';
+            rose.innerHTML = ['🌹', '🌷', '🌸', '💐'][Math.floor(Math.random() * 4)];
+            rose.style.left = x + 'px';
+            rose.style.top = y + 'px';
+            rose.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            rose.style.position = 'absolute';
+            rose.style.animation = 'grow-rose 0.5s ease-out';
+            rose.style.pointerEvents = 'none';
+
+            roseGarden.appendChild(rose);
+            roseCount++;
+            roseCountElement.textContent = roseCount;
+
+            // Create floating hearts around the rose
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💕';
+                    heart.style.left = (x + Math.random() * 40 - 20) + 'px';
+                    heart.style.top = (y - 20 - Math.random() * 20) + 'px';
+                    heart.style.fontSize = '16px';
+                    heart.style.position = 'absolute';
+                    heart.style.animation = 'float-up 1s ease-out forwards';
+                    heart.style.pointerEvents = 'none';
+                    roseGarden.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 1000);
+                }, i * 200);
+            }
+        }
+
+        function clearGarden() {
+            const roses = roseGarden.querySelectorAll('.planted-rose');
+            roses.forEach(rose => rose.remove());
+            roseCount = 0;
+            roseCountElement.textContent = roseCount;
+        }
+
+        if (roseGarden) {
+            roseGarden.addEventListener('click', plantRose);
+        }
+
+        // Mobile responsiveness improvements
+        function handleMobileLayout() {
+            const isMobile = window.innerWidth < 768;
+            const nav = document.querySelector('nav');
+
+            if (isMobile) {
+                // Adjust spacing for mobile
+                document.querySelectorAll('.py-20').forEach(section => {
+                    section.classList.remove('py-20');
+                    section.classList.add('py-12');
+                });
+
+                // Make buttons more touch-friendly
+                document.querySelectorAll('.modern-button').forEach(btn => {
+                    btn.style.minHeight = '48px';
+                    btn.style.padding = '12px 24px';
+                });
+            }
+        }
+
+        // Initialize mobile layout
+        handleMobileLayout();
+        window.addEventListener('resize', handleMobileLayout);
     </script>
 </body>
 </html>
